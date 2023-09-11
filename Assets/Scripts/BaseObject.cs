@@ -23,12 +23,14 @@ public class BaseObject : MonoBehaviour
     
     public event Action OnHealthChanged;
 
+    private Sequence sequence;
     public int Health => _health;
     private void Start()
     {
-        Sequence sequence = DOTween.Sequence();
-        sequence.Append(transform.DORotate(new Vector3(0, 0, -60), 1f)).Append(transform.DORotate(new Vector3(0, 20, 60), 1f));
+        sequence = DOTween.Sequence();
+        sequence.Append(transform.DORotate(new Vector3(0, 0, -30), 1f)).Append(transform.DORotate(new Vector3(0, 10, 30), 1f));
         sequence.SetLoops(-1, LoopType.Yoyo);
+        sequence.SetEase(Ease.Linear);
         OnHealthChanged?.Invoke();
     }
 
@@ -42,6 +44,7 @@ public class BaseObject : MonoBehaviour
         if (!_isBadObject)
         {
             GameManager.instance.AddPoints(_points);
+            GameManager.instance.TryAddCoins(gameObject.transform.position);
         }
         else
         {
@@ -62,12 +65,15 @@ public class BaseObject : MonoBehaviour
         var effect = Instantiate(_vfx, gameObject.transform.position, Quaternion.identity);
         effect.transform.parent = gameObject.transform;
         _health -= GameManager.instance.Damage;
-        OnHealthChanged?.Invoke();
         if(_health <= 0)
         {
-            PickUp();
-                
+            _health = 0;
+            var fallingObjectTranform = gameObject.transform;
+            fallingObjectTranform.GetComponent<Collider2D>().enabled = false;
+            PickUp();   
         }
+        OnHealthChanged?.Invoke();
+
     }
 
     public void DamagePlayer()
@@ -84,9 +90,13 @@ public class BaseObject : MonoBehaviour
         //fallingObjectTranform.GetChild(0).gameObject.SetActive(true);
 
         yield return DOTween.Sequence()
-            .Append(fallingObjectTranform.DOScale(new Vector3(fallingObjectTranform.localScale.x * 1.2f, fallingObjectTranform.localScale.y * 1.2f, fallingObjectTranform.localScale.z * 1.2f), 0.2f))
-            .Append(fallingObjectTranform.DOScale(Vector3.zero, 0.2f)).WaitForCompletion();
+            .Append(fallingObjectTranform.DOScale(new Vector3(fallingObjectTranform.localScale.x * 1.2f, fallingObjectTranform.localScale.y * 1.2f, fallingObjectTranform.localScale.z * 1.2f), 0.1f))
+            .Append(fallingObjectTranform.DOScale(Vector3.zero, 0.1f)).WaitForCompletion();
 
         Destroy(gameObject);
+    }
+    private void OnDisable()
+    {
+        sequence.Kill();
     }
 }

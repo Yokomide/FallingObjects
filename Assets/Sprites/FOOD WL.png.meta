@@ -3,7 +3,7 @@ guid: 8a4833aae4ab08344acde76623d535db
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -20,11 +20,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -63,6 +64,8 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -104,12 +107,12 @@ TextureImporter:
     buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: -1
+    textureFormat: 48
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
-    overridden: 0
+    overridden: 1
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -1134,57 +1137,56 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      FOOD WL_30: -1060063121
-      FOOD WL_27: 1224150043
-      FOOD WL_29: 2115210515
-      FOOD WL_37: 774421332
-      FOOD WL_46: -1229335307
-      FOOD WL_1: 74662240
-      FOOD WL_31: -1500676375
-      FOOD WL_12: 2142324257
-      FOOD WL_24: -1492376549
-      FOOD WL_5: 1729968370
-      FOOD WL_44: -1926969314
-      FOOD WL_33: 1048697733
-      FOOD WL_3: 1086020298
-      FOOD WL_17: -1233998037
-      FOOD WL_23: -699201716
-      FOOD WL_25: 129715341
-      FOOD WL_32: 2101787801
-      FOOD WL_15: -1728684693
-      FOOD WL_21: -2065974960
-      FOOD WL_39: 993295850
-      FOOD WL_11: -1718792104
-      FOOD WL_40: 15572874
       FOOD WL_0: -359824268
-      FOOD WL_34: 1945656144
-      FOOD WL_26: -1220235469
-      FOOD WL_38: 471650970
+      FOOD WL_1: 74662240
       FOOD WL_10: 232256100
-      FOOD WL_43: -1159111843
-      FOOD WL_19: -1051057676
-      FOOD WL_6: 1340200413
-      FOOD WL_22: -416197855
-      FOOD WL_20: 676365231
-      FOOD WL_28: 593059569
-      FOOD WL_42: -1027818664
-      FOOD WL_8: -1674745806
-      FOOD WL_2: 989543702
-      FOOD WL_7: -853118887
-      FOOD WL_14: -1046120560
+      FOOD WL_11: -1718792104
+      FOOD WL_12: 2142324257
       FOOD WL_13: -569616097
-      FOOD WL_47: 1065640441
-      FOOD WL_4: -703384291
-      FOOD WL_36: 1294168273
-      FOOD WL_41: -1591801388
+      FOOD WL_14: -1046120560
+      FOOD WL_15: -1728684693
       FOOD WL_16: 1201785164
+      FOOD WL_17: -1233998037
       FOOD WL_18: 1846026938
+      FOOD WL_19: -1051057676
+      FOOD WL_2: 989543702
+      FOOD WL_20: 676365231
+      FOOD WL_21: -2065974960
+      FOOD WL_22: -416197855
+      FOOD WL_23: -699201716
+      FOOD WL_24: -1492376549
+      FOOD WL_25: 129715341
+      FOOD WL_26: -1220235469
+      FOOD WL_27: 1224150043
+      FOOD WL_28: 593059569
+      FOOD WL_29: 2115210515
+      FOOD WL_3: 1086020298
+      FOOD WL_30: -1060063121
+      FOOD WL_31: -1500676375
+      FOOD WL_32: 2101787801
+      FOOD WL_33: 1048697733
+      FOOD WL_34: 1945656144
       FOOD WL_35: 997623228
-      FOOD WL_9: -721008661
+      FOOD WL_36: 1294168273
+      FOOD WL_37: 774421332
+      FOOD WL_38: 471650970
+      FOOD WL_39: 993295850
+      FOOD WL_4: -703384291
+      FOOD WL_40: 15572874
+      FOOD WL_41: -1591801388
+      FOOD WL_42: -1027818664
+      FOOD WL_43: -1159111843
+      FOOD WL_44: -1926969314
       FOOD WL_45: -161169927
-  spritePackingTag: 
+      FOOD WL_46: -1229335307
+      FOOD WL_47: 1065640441
+      FOOD WL_5: 1729968370
+      FOOD WL_6: 1340200413
+      FOOD WL_7: -853118887
+      FOOD WL_8: -1674745806
+      FOOD WL_9: -721008661
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

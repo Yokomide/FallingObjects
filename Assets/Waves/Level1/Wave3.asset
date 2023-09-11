@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cd69874df75a9d448c6b836fa16b59e, type: 3}
+  m_Name: Wave3
+  m_EditorClassIdentifier: 
+  _fallingObjectsList:
+  - {fileID: 2523081897969797897, guid: 2cb1ea187a9f16a4894b6807026c57cd, type: 3}
+  - {fileID: 2523081897969797897, guid: c6cfe3c339eb97c4e80d3a20ac9321c3, type: 3}
+  - {fileID: 2523081897969797897, guid: c8713b1fb8b56ab4e9fdf8cb49e4ba79, type: 3}
+  - {fileID: 2523081897969797897, guid: bbd6e0fd7fe25b64e824b625cbaa95b1, type: 3}
+  - {fileID: 2523081897969797897, guid: 3ecb7ae28e2723648a96d2f91df80738, type: 3}
+  - {fileID: 2523081897969797897, guid: 67d083b93fdd787499b7fffcb8737a76, type: 3}
+  _nextWaveDelay: 20
+  _shouldResetDelay: 0

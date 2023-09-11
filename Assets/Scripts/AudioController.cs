@@ -1,21 +1,41 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class AudioController : MonoBehaviour
 {
-    public AudioSource audioSource;
-    public AudioClip bgmSFX, glitchSFX;
+    [SerializeField] List<SoundPreset> _soundPresetList = new List<SoundPreset>();
 
-    public void PlayNormalSound()
+    [SerializeField]
+    private AudioSource _sfxAudioSource;
+
+    [SerializeField]
+    private AudioSource _bgmAudioSource;
+
+    private SoundPreset _currentSoundPreset;
+
+
+    public void SetPreset(SoundPreset soundPreset)
     {
-        audioSource.clip = bgmSFX;
-        audioSource.Play();
+        _currentSoundPreset = soundPreset;
+        SetBGM();
+    }
+    public void SetBGM()
+    {
+        _bgmAudioSource.clip = _currentSoundPreset.BGM;
+        _bgmAudioSource.Play();
+    }
+    public void PlayCorrectSound()
+    {
+        _sfxAudioSource.PlayOneShot(_currentSoundPreset.correctSound);
     }
 
-    public void PlayHorrorSound()
+    public void PlayBadSound()
     {
-        audioSource.clip = glitchSFX;
-        audioSource.Play();
+        _sfxAudioSource.PlayOneShot(_currentSoundPreset.badSound);
+    }
+
+    public void PlayClickSound()
+    {
+        _sfxAudioSource.PlayOneShot(_currentSoundPreset.clickSound);
     }
 }

@@ -7,9 +7,8 @@ public class ScaryObject : BaseObject
 {
     private void OnMouseDown()
     {
-        GameManager.instance.StartHorrorEvent();
+       // GameManager.instance.StartHorrorEvent();
         TakeDamage();
-        //TakeDamage();
         DestroyObject();
     }
 }

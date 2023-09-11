@@ -20,6 +20,8 @@ public class HealthBarContoller : MonoBehaviour
     [SerializeField]
     private float distanceBetweenHearts = 5;
 
+    [SerializeField]
+    private bool _isVertical;
     public void SetHealthHearts(int amount)
     {
         for (int i = 0; i < amount; i++)
@@ -27,7 +29,7 @@ public class HealthBarContoller : MonoBehaviour
             AddHeart();
         }
     }
-
+    /*
     private void SetHeartPosition()
     {
         RectTransform currentHeart = HealthHearts[HealthHearts.Count - 1].GetComponent<RectTransform>();
@@ -36,6 +38,11 @@ public class HealthBarContoller : MonoBehaviour
             RectTransform previousHeart = HealthHearts[HealthHearts.Count - 2].GetComponent<RectTransform>();
             Vector2 previousPosition = previousHeart.anchoredPosition;
 
+            if(_isVertical)
+            {
+                currentHeart.anchoredPosition = new Vector2(0, previousPosition.y - 10f * distanceBetweenHearts);
+                return;
+            }
             currentHeart.anchoredPosition = new Vector2(previousPosition.x - 10f * distanceBetweenHearts, 0);
         }
         else
@@ -43,13 +50,13 @@ public class HealthBarContoller : MonoBehaviour
             currentHeart.anchoredPosition = Vector2.zero;
         }
     }
-
+    */
     public void AddHeart()
     {
         var newHeart = Instantiate(_heart);
         newHeart.transform.SetParent(_heartsHolder.transform);
         HealthHearts.Add(newHeart);
-        SetHeartPosition();
+        //SetHeartPosition();
         PlayAddHeartAnimation();
     }
 
@@ -66,7 +73,7 @@ public class HealthBarContoller : MonoBehaviour
         var currentHeartTransform = HealthHearts.Last().GetComponent<RectTransform>();
 
         currentHeartTransform.localScale = Vector3.zero;
-        currentHeartTransform.DOScale(1, 2f);
+        currentHeartTransform.DOScale(1, 0.5f);
     }
 
     private IEnumerator DestroyCoroutine()
@@ -75,8 +82,8 @@ public class HealthBarContoller : MonoBehaviour
         HealthHearts.Remove(HealthHearts.Last());
 
         yield return DOTween.Sequence()
-            .Append(tweeningObject.DOShakeAnchorPos(2f, 10f))
-            .Join(tweeningObject.DOScale(0, 2f)).WaitForCompletion();
+            .Append(tweeningObject.DOShakeAnchorPos(2f, 0.05f))
+            .Join(tweeningObject.DOScale(0, 0.5f)).WaitForCompletion();
 
         Destroy(tweeningObject.gameObject);
     }

@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cd69874df75a9d448c6b836fa16b59e, type: 3}
+  m_Name: Wave 4_4
+  m_EditorClassIdentifier: 
+  _fallingObjectsList:
+  - {fileID: 2523081897969797897, guid: 8480e3bd945950e49b243935651dcf89, type: 3}
+  - {fileID: 2523081897969797897, guid: bd95644d856608945a28af1a1482979b, type: 3}
+  - {fileID: 2523081897969797897, guid: fe5f67258b4fe0746b9620723020cb77, type: 3}
+  - {fileID: 2523081897969797897, guid: d447e3a068e390b439268d5bf6ff27d4, type: 3}
+  - {fileID: 2523081897969797897, guid: e061dd0b2bd491f45b73a911be81db84, type: 3}
+  - {fileID: 2523081897969797897, guid: a971f512c71dd48488d3adf8035b9ef0, type: 3}
+  - {fileID: 2523081897969797897, guid: 19e207b3388740e45b7eb5ee3961de40, type: 3}
+  - {fileID: 2523081897969797897, guid: c4e2765316075324ca3dc2c7c0009cbb, type: 3}
+  _nextWaveDelay: 30
+  _shouldResetDelay: 0

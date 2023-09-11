@@ -1,4 +1,5 @@
 using JetBrains.Annotations;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
@@ -10,7 +11,12 @@ namespace _Samples.Scripts
 {
     public class VolumeController : MonoBehaviour
     {
-        [SerializeField] private Volume volume;
+
+        [SerializeField]
+        private Volume _volume;
+
+        [SerializeField] private List<VolumeProfile> _volumeProfiles = new List<VolumeProfile>();
+        private VolumeProfile _currentVolumeProfile;
 
         public bool isScary;
         private DigitalGlitchVolume digitalGlitchVolume;
@@ -19,9 +25,10 @@ namespace _Samples.Scripts
 
         private void Awake()
         {
-            volume.profile.TryGet<ColorAdjustments>(out var outColorAdjustmentsVolume);
-            volume.profile.TryGet<DigitalGlitchVolume>(out var outDigitalGlitchVolume);
-            volume.profile.TryGet<AnalogGlitchVolume>(out var outAnalogGlitchVolume);
+            _currentVolumeProfile = _volumeProfiles[0];
+            _currentVolumeProfile.TryGet<ColorAdjustments>(out var outColorAdjustmentsVolume);
+            _currentVolumeProfile.TryGet<DigitalGlitchVolume>(out var outDigitalGlitchVolume);
+            _currentVolumeProfile.TryGet<AnalogGlitchVolume>(out var outAnalogGlitchVolume);
 
             digitalGlitchVolume = outDigitalGlitchVolume;
             analogGlitchVolume = outAnalogGlitchVolume;
@@ -43,6 +50,12 @@ namespace _Samples.Scripts
             }
         }
 
+        public void SetVolume(VolumeProfile profile)
+        {
+            _currentVolumeProfile = profile;
+            _volume.profile = _currentVolumeProfile;
+
+        }
         public void ResetSettings()
         {
             digitalGlitchVolume.intensity.value = 0;
